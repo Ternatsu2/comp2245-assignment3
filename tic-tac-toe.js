@@ -66,3 +66,13 @@ document.querySelector(".btn").addEventListener("click", () => {
     document.getElementById("status").classList.remove("you-won");
     currentPlayer = "X";
 });
+
+square.addEventListener("click", () => {
+    if (!boardState[index] && !checkWinner()) {
+        boardState[index] = currentPlayer;
+        square.textContent = currentPlayer;
+        square.classList.add(currentPlayer);
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+        checkWinner();
+    }
+});
